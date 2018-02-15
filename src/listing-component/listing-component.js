@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '../list-item/list-item.component'
-
+const url = "http://stawka.api.v3.tvp.pl/shared/listing.php?parent_id=5351128&dump=json&direct=false&count=-1";
 class Listing extends React.Component { 
     constructor(props) {
         super(props);
@@ -13,7 +13,6 @@ class Listing extends React.Component {
     fetchFromServer =
         new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
-            const url = "http://stawka.api.v3.tvp.pl/shared/listing.php?parent_id=5351128&dump=json&direct=false&count=-1";
             xhr.open("GET", url);
             xhr.onload = () => resolve(xhr.responseText);
             xhr.onerror = () => reject(xhr.statusText);
